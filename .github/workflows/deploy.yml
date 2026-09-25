@@ -9,8 +9,7 @@ on:
 jobs:
   test:
     name: Run tests
-    #runs-on: [self-hosted, linux, x64, python-app]
-    runs-on: thermaltake
+    runs-on: [self-hosted, linux, x64, python-app]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
