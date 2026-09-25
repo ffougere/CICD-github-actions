@@ -9,8 +9,14 @@ on:
 jobs:
   test:
     name: Run tests
+<<<<<<< HEAD
     runs-on: thermaltake
 
+=======
+    #runs-on: [self-hosted, linux, x64, python-app]
+    runs-on: thermaltake
+  
+>>>>>>> affe6a5 (push update)
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
