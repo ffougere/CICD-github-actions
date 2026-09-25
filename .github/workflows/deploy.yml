@@ -9,7 +9,7 @@ on:
 jobs:
   test:
     name: Run tests
-    runs-on: [self-hosted, linux, x64, python-app]
+    runs-on: [self-hosted, linux, x64]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
     name: Deploy application
     needs: test
     if: github.ref == 'refs/heads/main'
-    runs-on: [self-hosted, linux, x64, python-app]
+    runs-on: [self-hosted, linux, x64]
 
     steps:
       - name: Checkout repository
