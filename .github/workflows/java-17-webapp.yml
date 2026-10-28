@@ -1,0 +1,29 @@
+name: Deploy Java App to Azure Web App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Build app
+        run: mvn clean package -DskipTests
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: fabrice-poc-java-20261028
+          package: target/*.jar
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
